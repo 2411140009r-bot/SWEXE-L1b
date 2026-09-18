@@ -1,6 +1,6 @@
 <h1>書籍編集</h1>
 
-<%= render "form", book: @book %>
+<%= render partial: "form", locals: { book: @book } %>
 
 <br>
 <%= link_to "詳細に戻る", book_path(@book) %> |
