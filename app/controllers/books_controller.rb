@@ -12,24 +12,24 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  def create
+def create
     @book = Book.new(book_params)
     if @book.save
-      redirect_to @book, notice: "登録しました。"
+      redirect_to @book, notice: "登録しました。", status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  def edit
-  end
-
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: "更新しました。"
+      redirect_to @book, notice: "更新しました。", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
   def destroy
