@@ -1,0 +1,18 @@
+<%= form_with(model: book, local: true) do |f| %>
+  <div>
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :author, "著者" %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div>
+    <%= f.label :price, "価格" %><br>
+    <%= f.number_field :price %>
+  </div>
+  <br>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
