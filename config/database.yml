@@ -1,3 +1,18 @@
+# 1. 一番上にこれを定義する（&default が必須です）
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: myapp_development
+
+test:
+  <<: *default
+  database: myapp_test
+
+# 2. あなたの現在の設定（これで *default が正しく読み込めます）
 production:
   primary: &primary_production
     <<: *default
