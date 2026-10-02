@@ -1,3 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: myapp_development
+
+test:
+  <<: *default
+  database: myapp_test
+
 production:
   primary: &primary_production
     <<: *default
@@ -8,8 +21,6 @@ production:
     username: mysite_n9ce_user
     password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
     url: <%= ENV['DATABASE_URL'] %>
-
-  # 以下を追加（primary の設定をそのまま再利用します）
   cache:
     <<: *primary_production
   queue:
