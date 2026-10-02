@@ -4,9 +4,7 @@ production:
     adapter: postgresql
     encoding: unicode
     pool: 5
-  cache:
-    <<: *primary_production
-  queue:
-    <<: *primary_production
-  cable:
-    <<: *primary_production
+    database: mysite_n9ce
+    username: mysite_n9ce_user
+    password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+    url: <%= ENV['DATABASE_URL'] %>
