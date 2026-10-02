@@ -8,3 +8,11 @@ production:
     username: mysite_n9ce_user
     password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
     url: <%= ENV['DATABASE_URL'] %>
+
+  # 以下を追加（primary の設定をそのまま再利用します）
+  cache:
+    <<: *primary_production
+  queue:
+    <<: *primary_production
+  cable:
+    <<: *primary_production
